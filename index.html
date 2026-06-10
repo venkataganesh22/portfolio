@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venkata Ganesh | ML Engineer</title>
+  <meta name="description" content="Portfolio of Guthi Venkata Ganesh — ML Engineer, Data Analyst, B.Tech CSE student." />
+  <meta name="keywords" content="Venkata Ganesh, ML Engineer, Data Analyst, Python, Machine Learning, Portfolio" />
+  <meta property="og:title" content="Venkata Ganesh | ML Engineer" />
+  <meta property="og:description" content="Portfolio of Guthi Venkata Ganesh — ML Engineer & Data Analyst" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── CSS Variables ─────────────────────────── */
+    :root {
+      --bg:            #000;
+      --bg-panel:      rgba(255,255,255,0.035);
+      --bg-card:       rgba(255,255,255,0.025);
+      --border:        rgba(255,255,255,0.07);
+      --border-h:      rgba(255,255,255,0.2);
+      --text:          #fff;
+      --text-muted:    #9ca3af;
+      --text-faint:    #4b5563;
+      --btn-bg:        #fff;
+      --btn-text:      #000;
+      --grad-a:        #ffffff;
+      --grad-b:        #6b7280;
+      --scrollbar:      rgba(255,255,255,0.12);
+    }
+    .lm {
+      --bg:            #f7f7f7;
+      --bg-panel:      rgba(0,0,0,0.035);
+      --bg-card:       rgba(0,0,0,0.022);
+      --border:        rgba(0,0,0,0.08);
+      --border-h:      rgba(0,0,0,0.22);
+      --text:          #0a0a0a;
+      --text-muted:    #555;
+      --text-faint:    #999;
+      --btn-bg:        #0a0a0a;
+      --btn-text:      #fff;
+      --grad-a:        #0a0a0a;
+      --grad-b:        #6b7280;
+      --scrollbar:      rgba(0,0,0,0.12);
+    }
+
+    /* ── Reset ─────────────────────────────────── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Sora','DM Sans',sans-serif;overflow:hidden;transition:background 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button{background:none;border:none;cursor:pointer;color:inherit;font-family:inherit}
+    input,textarea,select{font-family:inherit}
+    ::-webkit-scrollbar{width:3px}
+    ::-webkit-scrollbar-track{background:transparent}
+    ::-webkit-scrollbar-thumb{background:var(--scrollbar);border-radius:99px}
+
+    /* ── Glass ──────────────────────────────────── */
+    .gl{background:var(--bg-card);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid var(--border);transition:border-color .3s,transform .35s,background 0.4s cubic-bezier(0.4, 0, 0.2, 1)}
+    .gl:hover{border-color:var(--border-h)}
+    .lift:hover{transform:translateY(-4px);background:rgba(255,255,255,0.05)}
+
+    /* ── Layout ─────────────────────────────────── */
+    #wrap{height:100vh;display:flex;overflow:hidden}
+
+    /* Sidebar */
+    #sb{width:256px;flex-shrink:0;padding:1.2rem;z-index:30}
+    .sb-in{background:var(--bg-panel);border:1px solid var(--border);border-radius:24px;height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.8rem 1.4rem;overflow-y:auto;gap:.55rem;transition:background .4s,border-color .4s}
+    .sb-name{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}
+    .sb-badge{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--border);border-radius:99px;padding:3px 12px;color:var(--text-muted);margin-bottom:.4rem}
+    .sb-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint)}
+    .sb-val{font-size:11.5px;font-weight:500;color:var(--text-muted)}
+    .sb-div{width:80%;height:1px;background:var(--border);margin:.4rem 0}
+    .sb-socials{display:flex;gap:8px;margin:.5rem 0}
+    .sb-soc{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s}
+    .sb-soc:hover{background:var(--btn-bg);color:var(--btn-text);border-color:transparent}
+    .sb-adm{font-size:10px;color:var(--text-faint);padding:4px 12px;border-radius:99px;border:1px solid var(--border);transition:all .2s;margin-top:.3rem}
+    .sb-adm:hover{background:var(--text);color:var(--bg)}
+    .sb-res{margin-top:auto;width:100%;background:var(--btn-bg);color:var(--btn-text);border-radius:14px;padding:11px;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;gap:7px;transition:opacity .2s}
+    .sb-res:hover{opacity:.82}
+
+    /* Main */
+    #main{flex:1;overflow-y:auto;overflow-x:hidden;padding:2.8rem 3.5rem 2.8rem 2.5rem;scroll-behavior:smooth}
+
+    /* Right rail */
+    #rail{width:54px;flex-shrink:0;display:flex;align-items:center;z-index:50}
+    .rail-in{background:var(--bg-panel);border:1px solid var(--border);border-radius:18px 0 0 18px;width:100%;padding:1.1rem 0;display:flex;flex-direction:column;align-items:center;gap:5px;transition:background .4s,border-color .4s}
+    .rb{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-faint);transition:background .2s,color .2s;position:relative}
+    .rb:hover{background:var(--bg-card);color:var(--text)}
+    .rb.on{background:var(--text);color:var(--bg)}
+    .rb-div{width:20px;height:1px;background:var(--border);margin:3px 0}
+    .rb-tip{position:absolute;right:calc(100% + 9px);background:#111;border:1px solid var(--border);color:#fff;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s}
+    .rb:hover .rb-tip{opacity:1}
+
+    /* Responsive */
+    @media(max-width:860px){#sb{display:none}#main{padding:1.5rem 1rem}#rail{width:46px}.rb-tip{display:none}}
+
+    /* ── Hero ───────────────────────────────────── */
+    #hero{padding-bottom:4.5rem}
+    .h-name{font-size:clamp(2.2rem,4.5vw,4.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+    .h-grad{background:linear-gradient(to right,var(--grad-a),var(--grad-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .h-sub{margin-top:.9rem;font-size:.98rem;color:var(--text-muted);max-width:520px;line-height:1.65;font-weight:400}
+
+    /* ── Section wrap ───────────────────────────── */
+    .sw{padding-bottom:5.5rem}
+    .st{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;padding-bottom:11px;border-bottom:1px solid var(--border);margin-bottom:1.4rem}
+    .st svg{color:var(--text-muted);flex-shrink:0}
+    .st-row{display:flex;align-items:center;margin-bottom:1.4rem}
+    .st-row .st{flex:1;margin-bottom:0;padding-bottom:0;border-bottom:none}
+    .st-row::after{content:'';flex:1;height:1px;background:var(--border);margin-left:.75rem}
+
+    /* ── About ──────────────────────────────────── */
+    .abt{padding:1.75rem;border-radius:18px;line-height:1.78;color:var(--text-muted);font-size:.875rem}
+    .abt p+p{margin-top:.85rem}
+    .abt strong{color:var(--text);font-weight:600}
+    .edu-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:.9rem;margin-top:1.1rem}
+    .edu-c{padding:1.1rem 1.4rem;border-radius:15px}
+    .edu-l{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);font-weight:700}
+    .edu-v{font-size:.88rem;font-weight:600;margin-top:3px}
+    .edu-s{font-size:.73rem;color:var(--text-muted);margin-top:2px}
+
+    /* ── Achievements ───────────────────────────── */
+    .ach-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.9rem}
+    .ach-c{padding:1.4rem;border-radius:18px;display:flex;flex-direction:column;gap:9px}
+    .ach-ico{width:38px;height:38px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+    .ach-t{font-weight:700;font-size:.875rem}
+    .ach-s{font-size:.75rem;color:var(--text-muted);line-height:1.5}
+
+    /* ── Skills ─────────────────────────────────── */
+    .sk-w{padding:1.75rem;border-radius:18px}
+    .sk-cl{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);font-weight:700;margin-bottom:.65rem;margin-top:1.1rem}
+    .sk-cl:first-child{margin-top:0}
+    .sk-tg{display:flex;flex-wrap:wrap;gap:7px}
+    .sk-t{padding:6px 15px;border-radius:99px;font-size:11.5px;font-weight:500;border:1px solid var(--border);color:var(--text-muted);transition:background .2s,color .2s,border-color .2s}
+    .sk-t:hover{background:var(--text);color:var(--bg);border-color:transparent}
+
+    /* ── Projects ───────────────────────────────── */
+    .pr-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem}
+    .pr-c{padding:1.6rem;border-radius:20px;display:flex;flex-direction:column;justify-content:space-between;gap:.9rem;min-height:200px}
+    .pr-t{font-size:1rem;font-weight:700;letter-spacing:-.01em}
+    .pr-d{font-size:.78rem;color:var(--text-muted);line-height:1.6;flex:1;margin-top:.45rem}
+    .pr-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:.6rem}
+    .pr-tag{font-size:10px;font-weight:600;padding:3px 10px;border-radius:99px;border:1px solid var(--border);color:var(--text-faint)}
+    .pr-lnks{display:flex;gap:8px;margin-top:.4rem}
+    .pr-ln{font-size:11px;font-weight:600;display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:99px;border:1px solid var(--border);transition:background .2s,color .2s,border-color .2s}
+    .pr-ln:hover{background:var(--text);color:var(--bg);border-color:transparent}
+
+    /* ── Notes ──────────────────────────────────── */
+    .nt-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.9rem}
+    .nt-c{padding:1.4rem;border-radius:17px;display:flex;flex-direction:column;gap:.65rem}
+    .nt-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint)}
+    .nt-t{font-weight:700;font-size:.875rem}
+    .nt-d{font-size:.75rem;color:var(--text-muted);line-height:1.5;flex:1}
+    .nt-dl{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:6px 13px;border-radius:99px;border:1px solid var(--border);transition:background .2s,color .2s,border-color .2s;align-self:flex-start}
+    .nt-dl:hover{background:var(--text);color:var(--bg);border-color:transparent}
+
+    /* ── Coding ─────────────────────────────────── */
+    .cp-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.9rem}
+    .cp-c{padding:1.1rem 1.4rem;border-radius:14px;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:.92rem;transition:all .25s}
+    .cp-c:hover{background:var(--text)!important;color:var(--bg);border-color:transparent}
+    .cp-c:hover svg{color:var(--bg)!important}
+
+    /* ── Certs ──────────────────────────────────── */
+    .ce-l{display:flex;flex-direction:column;gap:.8rem}
+    .ce-c{padding:1rem 1.3rem;border-radius:14px;display:flex;align-items:center;gap:.9rem;transition:all .25s}
+    .ce-c:hover{transform:translateY(-3px)}
+    .ce-b{width:40px;height:40px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:10px;border:1px solid var(--border);background:var(--bg-card)}
+    .ce-n{font-weight:700;font-size:.85rem}
+    .ce-o{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-faint);margin-top:2px}
+
+    /* ── Contact ────────────────────────────────── */
+    .co-c{padding:2.5rem;border-radius:22px;text-align:center}
+    .co-t{font-size:1.3rem;font-weight:700;letter-spacing:-.02em}
+    .co-s{color:var(--text-muted);font-size:.83rem;margin-top:.45rem;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.65}
+    .co-bs{display:flex;flex-wrap:wrap;justify-content:center;gap:.65rem;margin-top:1.75rem}
+    .co-b{padding:9px 20px;border-radius:99px;border:1px solid var(--border);font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:7px;transition:background .2s,color .2s,border-color .2s}
+    .co-b:hover{background:var(--text);color:var(--bg);border-color:transparent}
+
+    /* ── Admin add btn (inline) ─────────────────── */
+    .adm-btn{display:none;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:5px 13px;border-radius:99px;border:1px dashed var(--border-h);color:var(--text-muted);transition:all .2s;margin-left:8px;flex-shrink:0}
+    .adm-btn:hover{background:var(--text);color:var(--bg);border-style:solid}
+    body.admin-mode .adm-btn{display:inline-flex}
+
+    /* ── Modal ──────────────────────────────────── */
+    .mov{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .25s}
+    .mov.open{opacity:1;pointer-events:all}
+    .mbox{background:var(--bg);border:1px solid var(--border);border-radius:22px;padding:2rem;width:100%;max-width:460px;max-height:88vh;overflow-y:auto;position:relative;transform:translateY(18px);transition:transform .25s}
+    .mov.open .mbox{transform:translateY(0)}
+    .m-title{font-size:1.05rem;font-weight:700;margin-bottom:1.2rem}
+    .m-close{position:absolute;top:1.1rem;right:1.1rem;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--text-muted);font-size:13px;transition:all .2s}
+    .m-close:hover{background:var(--text);color:var(--bg)}
+    .ff{margin-bottom:.9rem}
+    .fl{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);display:block;margin-bottom:4px}
+    .fi{width:100%;padding:9px 13px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:.85rem;outline:none;transition:border-color .2s}
+    .fi:focus{border-color:var(--border-h)}
+    textarea.fi{resize:vertical;min-height:76px}
+    .f2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    .f-sub{width:100%;padding:11px;background:var(--btn-bg);color:var(--btn-text);border-radius:11px;font-weight:700;font-size:.875rem;transition:opacity .2s;margin-top:.4rem}
+    .f-sub:hover{opacity:.84}
+    .f-sub:disabled{opacity:.45;cursor:not-allowed}
+
+    /* ── Admin panel ────────────────────────────── */
+    #adm{position:fixed;inset:0;z-index:900;background:var(--bg);overflow-y:auto;padding:2rem;display:none}
+    #adm.open{display:block}
+    .adm-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.75rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+    .adm-ttl{font-size:1.35rem;font-weight:800}
+    .adm-acts{display:flex;gap:8px}
+    .adm-lout{padding:7px 16px;border-radius:99px;border:1px solid var(--border);font-size:12px;font-weight:700;transition:all .2s}
+    .adm-lout:hover{background:var(--text);color:var(--bg)}
+    .adm-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:1.75rem}
+    .adm-tab{padding:7px 15px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid var(--border);color:var(--text-muted);transition:all .2s}
+    .adm-tab.on,.adm-tab:hover{background:var(--text);color:var(--bg);border-color:transparent}
+    .adm-sec{display:none}
+    .adm-sec.on{display:block}
+    .adm-item{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.15rem;border-radius:13px;border:1px solid var(--border);margin-bottom:.65rem;gap:.9rem}
+    .adm-it{flex:1;min-width:0}
+    .adm-itn{font-weight:600;font-size:.875rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .adm-its{font-size:.72rem;color:var(--text-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .adm-del{padding:5px 11px;border-radius:99px;font-size:11px;font-weight:700;border:1px solid rgba(239,68,68,.3);color:#ef4444;transition:all .2s}
+    .adm-del:hover{background:#ef4444;color:#fff;border-color:transparent}
+    .adm-add{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:13px;border-radius:13px;border:1px dashed var(--border-h);color:var(--text-muted);font-weight:700;font-size:.85rem;transition:all .2s;margin-top:.4rem}
+    .adm-add:hover{background:var(--text);color:var(--bg);border-style:solid}
+
+    /* ── Login ──────────────────────────────────── */
+    #login-ov{position:fixed;inset:0;z-index:950;background:rgba(0,0,0,.78);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center}
+    #login-ov.open{display:flex}
+    .l-box{background:var(--bg);border:1px solid var(--border);border-radius:22px;padding:2.4rem;width:100%;max-width:350px}
+    .l-ttl{font-size:1.15rem;font-weight:800;margin-bottom:1.4rem}
+    .l-err{font-size:.78rem;color:#ef4444;margin-top:.4rem;display:none}
+
+    /* ── Toast ──────────────────────────────────── */
+    #toast{position:fixed;bottom:1.8rem;left:50%;transform:translateX(-50%) translateY(16px);background:var(--text);color:var(--bg);padding:9px 20px;border-radius:99px;font-size:.82rem;font-weight:600;opacity:0;transition:all .3s;z-index:9999;pointer-events:none;white-space:nowrap}
+    #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    /* ── Footer ─────────────────────────────────── */
+    footer{border-top:1px solid var(--border);padding:1.75rem 0;margin-top:1.5rem;color:var(--text-muted);font-size:.78rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+    .pulse{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite;display:inline-block;margin-right:5px}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+    /* ── Spinner ────────────────────────────────── */
+    .spin{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);border-top-color:var(--text);animation:sp .7s linear infinite;display:block;margin:1.5rem auto}
+    @keyframes sp{to{transform:rotate(360deg)}}
+
+    /* ── Empty ──────────────────────────────────── */
+    .empty{text-align:center;padding:2.5rem;color:var(--text-faint);font-size:.83rem;border:1px dashed var(--border);border-radius:17px}
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<div id="login-ov">
+  <div class="l-box">
+    <div class="l-ttl">Admin Login</div>
+    <div class="ff"><label class="fl">Email</label><input id="le" type="email" class="fi" placeholder="admin@email.com" /></div>
+    <div class="ff"><label class="fl">Password</label><input id="lp" type="password" class="fi" placeholder="••••••••" /></div>
+    <div id="lerr" class="l-err">Invalid credentials. Try again.</div>
+    <button id="lbtn" class="f-sub" style="margin-top:.9rem">Sign In</button>
+    <button id="lcancel" style="width:100%;margin-top:.4rem;padding:9px;font-size:.8rem;color:var(--text-muted)">Cancel</button>
+  </div>
+</div>
+
+<div id="adm">
+  <div class="adm-hd">
+    <div class="adm-ttl">⚙ Admin Dashboard</div>
+    <div class="adm-acts">
+      <button id="back-btn" class="adm-lout">← Portfolio</button>
+      <button id="logout-btn" class="adm-lout">Sign Out</button>
+    </div>
+  </div>
+  <div class="adm-tabs" id="adm-tabs">
+    <button class="adm-tab on" data-t="projects">Projects</button>
+    <button class="adm-tab" data-t="skills">Skills</button>
+    <button class="adm-tab" data-t="notes">Notes</button>
+    <button class="adm-tab" data-t="certificates">Certificates</button>
+    <button class="adm-tab" data-t="achievements">Achievements</button>
+    <button class="adm-tab" data-t="coding">Coding Profiles</button>
+  </div>
+  <div class="adm-sec on" id="adms-projects"><div id="adml-projects"></div><button class="adm-add" data-modal="mp" data-reload="projects">+ Add Project</button></div>
+  <div class="adm-sec" id="adms-skills"><div id="adml-skills"></div><button class="adm-add" data-modal="ms" data-reload="skills">+ Add Skill</button></div>
+  <div class="adm-sec" id="adms-notes"><div id="adml-notes"></div><button class="adm-add" data-modal="mn" data-reload="notes">+ Add Note</button></div>
+  <div class="adm-sec" id="adms-certificates"><div id="adml-certificates"></div><button class="adm-add" data-modal="mc" data-reload="certificates">+ Add Certificate</button></div>
+  <div class="adm-sec" id="adms-achievements"><div id="adml-achievements"></div><button class="adm-add" data-modal="ma" data-reload="achievements">+ Add Achievement</button></div>
+  <div class="adm-sec" id="adms-coding"><div id="adml-coding"></div><button class="adm-add" data-modal="mcp" data-reload="coding">+ Add Coding Profile</button></div>
+</div>
+
+<div class="mov" id="mp">
+  <div class="mbox">
+    <div class="m-title">Add Project</div>
+    <button class="m-close" data-close="mp">✕</button>
+    <div class="ff"><label class="fl">Title</label><input id="pf-title" class="fi" placeholder="PixelForge Studio" /></div>
+    <div class="ff"><label class="fl">Description</label><textarea id="pf-desc" class="fi" placeholder="What does this project do?"></textarea></div>
+    <div class="ff"><label class="fl">Tech Stack (comma-separated)</label><input id="pf-tech" class="fi" placeholder="Python, Streamlit, OpenCV" /></div>
+    <div class="f2">
+      <div class="ff"><label class="fl">GitHub URL</label><input id="pf-gh" class="fi" placeholder="https://github.com/..." /></div>
+      <div class="ff"><label class="fl">Live Demo URL</label><input id="pf-demo" class="fi" placeholder="https://..." /></div>
+    </div>
+    <button class="f-sub" data-submit="projects">Save Project</button>
+  </div>
+</div>
+<div class="mov" id="ms">
+  <div class="mbox">
+    <div class="m-title">Add Skill</div>
+    <button class="m-close" data-close="ms">✕</button>
+    <div class="ff"><label class="fl">Skill Name</label><input id="sf-name" class="fi" placeholder="TensorFlow" /></div>
+    <div class="ff"><label class="fl">Category</label>
+      <select id="sf-cat" class="fi">
+        <option value="Languages">Languages</option>
+        <option value="Data & ML">Data & ML</option>
+        <option value="Visualization">Visualization</option>
+        <option value="Web">Web</option>
+        <option value="Tools">Tools</option>
+      </select>
+    </div>
+    <button class="f-sub" data-submit="skills">Save Skill</button>
+  </div>
+</div>
+<div class="mov" id="mn">
+  <div class="mbox">
+    <div class="m-title">Add Note</div>
+    <button class="m-close" data-close="mn">✕</button>
+    <div class="ff"><label class="fl">Title</label><input id="nf-title" class="fi" placeholder="Numerical Python" /></div>
+    <div class="ff"><label class="fl">Description</label><textarea id="nf-desc" class="fi" placeholder="Short description"></textarea></div>
+    <div class="ff"><label class="fl">Category</label><input id="nf-cat" class="fi" placeholder="NumPy / Pandas / ML..." /></div>
+    <div class="ff"><label class="fl">File URL or GitHub Link</label><input id="nf-url" class="fi" placeholder="https://github.com/..." /></div>
+    <button class="f-sub" data-submit="notes">Save Note</button>
+  </div>
+</div>
+<div class="mov" id="mc">
+  <div class="mbox">
+    <div class="m-title">Add Certificate</div>
+    <button class="m-close" data-close="mc">✕</button>
+    <div class="ff"><label class="fl">Certificate Title</label><input id="cf-title" class="fi" placeholder="Python Basics" /></div>
+    <div class="ff"><label class="fl">Organization</label><input id="cf-org" class="fi" placeholder="HackerRank / Coursera" /></div>
+    <div class="ff"><label class="fl">Subtitle / Description</label><input id="cf-desc" class="fi" placeholder="Verified Technical Proficiency" /></div>
+    <div class="ff"><label class="fl">Credential URL</label><input id="cf-url" class="fi" placeholder="https://..." /></div>
+    <div class="ff"><label class="fl">Badge Label (2–3 chars)</label><input id="cf-badge" class="fi" placeholder="HR / C / UC" maxlength="3" /></div>
+    <button class="f-sub" data-submit="certificates">Save Certificate</button>
+  </div>
+</div>
+<div class="mov" id="ma">
+  <div class="mbox">
+    <div class="m-title">Add Achievement</div>
+    <button class="m-close" data-close="ma">✕</button>
+    <div class="ff"><label class="fl">Title</label><input id="af-title" class="fi" placeholder="BITS-HYD Hackathon 2025" /></div>
+    <div class="ff"><label class="fl">Description</label><textarea id="af-desc" class="fi" placeholder="Participated / Won / Ranked..."></textarea></div>
+    <div class="ff"><label class="fl">Icon</label>
+      <select id="af-icon" class="fi">
+        <option value="trophy">🏆 Trophy</option>
+        <option value="star">⭐ Star</option>
+        <option value="award">🎖 Award</option>
+        <option value="code">💻 Code</option>
+      </select>
+    </div>
+    <button class="f-sub" data-submit="achievements">Save Achievement</button>
+  </div>
+</div>
+<div class="mov" id="mcp">
+  <div class="mbox">
+    <div class="m-title">Add Coding Profile</div>
+    <button class="m-close" data-close="mcp">✕</button>
+    <div class="ff"><label class="fl">Platform Name</label><input id="cpf-name" class="fi" placeholder="LeetCode" /></div>
+    <div class="ff"><label class="fl">Profile URL</label><input id="cpf-url" class="fi" placeholder="https://leetcode.com/u/..." /></div>
+    <button class="f-sub" data-submit="coding">Save Profile</button>
+  </div>
+</div>
+
+<div id="wrap">
+
+  <aside id="sb">
+    <div class="sb-in">
+      <div class="sb-name">Venkata Ganesh</div>
+      <div class="sb-badge">ML Engineer</div>
+      <div class="sb-lbl">Email</div>
+      <div class="sb-val"><a href="mailto:venkataganesh0622@gmail.com">venkataganesh0622@gmail.com</a></div>
+      <div class="sb-div"></div>
+      <div class="sb-socials">
+        <a href="https://www.linkedin.com/in/venkataganesh22" target="_blank" class="sb-soc" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/venkataganesh22" target="_blank" class="sb-soc" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </a>
+        <a href="https://www.instagram.com/venkataganesh99" target="_blank" class="sb-soc" title="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+       <a href="https://leetcode.com/u/venkataganesh_22/" target="_blank" class="sb-soc" title="LeetCode">
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21.469 23.907l-3.595 3.473c-0.624 0.625-1.484 0.885-2.432 0.885s-1.807-0.26-2.432-0.885l-5.776-5.812c-0.62-0.625-0.937-1.537-0.937-2.485 0-0.952 0.317-1.812 0.937-2.432l5.76-5.844c0.625-0.625 1.536-0.938 2.484-0.938 0.953 0 1.813 0.313 2.433 0.938l3.541 3.594"/>
+    <path d="M25.328 11.833l-7.396-7.51c-1.25-1.25-3.615-1.25-4.865 0l-1.427 1.448"/>
+    <path d="M19.141 11.516l5.724 5.813c0.62 0.625 0.938 1.484 0.938 2.432 0 0.953-0.317 1.813-0.938 2.433l-3.395 3.437"/>
+  </svg>
+</a>
+      </div>
+      <div class="sb-div"></div>
+      <button id="adm-trigger" class="sb-adm">⚙ Admin</button>
+      <a href="#" id="res-btn" class="sb-res">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Resume</span>
+      </a>
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <header id="hero">
+      <h1 class="h-name">Guthi Venkata <span class="h-grad">Ganesh</span></h1>
+      <p class="h-sub">ML Engineer & Data Analyst. B.Tech CSE student passionate about transforming raw data into impactful insights through machine learning and intelligent systems.</p>
+    </header>
+
+    <section id="about" class="sw">
+      <div class="st-row">
+        <div class="st">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          About Me
+        </div>
+      </div>
+      <div class="abt gl">
+        <p>I'm <strong>Guthi Venkata Ganesh</strong>, a B.Tech Computer Science student with a deep passion for machine learning, data analytics, and intelligent systems. I enjoy transforming raw data into meaningful insights using tools like NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, and PyTorch.</p>
+        <p>With a strong foundation in programming and data structures, I combine analytical thinking with practical implementation — from data cleaning and visualization to building ML models with clean, efficient, and scalable code.</p>
+        <p>I'm continuously improving my skills in statistics, deep learning, and real-world data projects. My goal is to leverage data-driven decision-making to solve impactful problems and contribute to innovative teams building the future with AI.</p>
+      </div>
+      <div class="edu-g">
+        <div class="edu-c gl"><div class="edu-l">Degree</div><div class="edu-v">B.Tech Computer Science</div><div class="edu-s">Currently pursuing</div></div>
+        <div class="edu-c gl"><div class="edu-l">CGPA</div><div class="edu-v">9.58 / 10</div><div class="edu-s">Semester best: 9.9 / 10</div></div>
+        <div class="edu-c gl"><div class="edu-l">Status</div><div class="edu-v">Fresher</div><div class="edu-s">Open to opportunities</div></div>
+      </div>
+    </section>
+
+    <section id="achievements" class="sw">
+      <div class="st-row">
+        <div class="st">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          Achievements
+        </div>
+        <button class="adm-btn" data-modal="ma">+ Add</button>
+      </div>
+      <div class="ach-g" id="achievements-list"><div class="spin"></div></div>
+    </section>
+
+    <section id="skills" class="sw">
+      <div class="st-row">
+        <div class="st">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          Technical Skills
+        </div>
+        <button class="adm-btn" data-modal="ms">+ Add Skill</button>
+      </div>
+      <div class="sk-w gl" id="skills-list"><div class="spin"></div></div>
+    </section>
+
+    <section id="projects" class="sw">
+      <div class="st-row">
+        <div class="st">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10h10V2z"/><path d="M22 12H12v10h10V12z"/><path d="M12 12H2v10h10V12z"/><path d="M22 2H12v10h10V2z"/></svg>
+          Featured Projects
+        </div>
+        <button class="adm-btn" data-modal="mp">+ Add Project</button>
+      </div>
+      <div class="pr-g" id="projects-list"><div class="spin"></div></div>
+    </section>
+
+    <section id="notes" class="sw">
+      <div class="st-row">
+        <div class="st">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Notes & Learning
+        </div>
+        <button class="adm-btn" data-modal="mn">+ Add Note</button>
+      </div>
+      <div class="nt-g" id="notes-list"><div class="spin"></div></div>
+    </section>
+
+    <section id="coding" class="sw">
+      <div class="st-row">
+        <div class="st">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Coding Profiles
+        </div>
+        <button class="adm-btn" data-modal="mcp">+ Add Profile</button>
+      </div>
+      <div class="cp-g" id="coding-list"><div class="spin"></div></div>
+    </section>
+
+    <section id="certificates" class="sw">
+      <div class="st-row">
+        <div class="st">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 12V3"/><path d="m9 21 3-3 3 3"/><path d="M18.4 8.5C18.8 9.6 19 10.7 19 12a7 7 0 1 1-14 0c0-1.3.2-2.4.6-3.5"/></svg>
+          Certifications
+        </div>
+        <button class="adm-btn" data-modal="mc">+ Add Certificate</button>
+      </div>
+      <div class="ce-l" id="certs-list"><div class="spin"></div></div>
+    </section>
+
+    <section id="contact" class="sw">
+      <div class="st">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.2 0 4 1.8 4 4v8Z"/><polyline points="15,9 18,9 18,11"/><path d="M6.5 5C9 5 11 7 11 9.5V17a2 2 0 0 1-2 2"/></svg>
+        Get in Touch
+      </div>
+      <div class="co-c gl">
+        <div class="co-t">Let's collaborate on something great.</div>
+        <div class="co-s">Open for opportunities in Machine Learning, Data Analytics, and Software Development. I'd love to hear from you.</div>
+        <div class="co-bs">
+          <a href="mailto:venkataganesh0622@gmail.com" class="co-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email
+          </a>
+          <a href="https://www.linkedin.com/in/venkataganesh22" target="_blank" class="co-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn
+          </a>
+          <a href="https://github.com/venkataganesh22" target="_blank" class="co-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub
+          </a>
+          <a href="https://www.instagram.com/venkataganesh99" target="_blank" class="co-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>Instagram
+          </a>
+         
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Guthi Venkata Ganesh</span>
+      <span><span class="pulse"></span>Available for work</span>
+    </footer>
+  </main>
+
+  <nav id="rail">
+    <div class="rail-in">
+      <button class="rb" id="theme-btn">
+        <span class="rb-tip">Theme</span>
+        <svg id="ico-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        <svg id="ico-moon" style="display:none" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+      <div class="rb-div"></div>
+      <button class="rb on" data-sec="about"><span class="rb-tip">About</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></button>
+      <button class="rb" data-sec="achievements"><span class="rb-tip">Achievements</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></button>
+      <button class="rb" data-sec="skills"><span class="rb-tip">Skills</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></button>
+      <button class="rb" data-sec="projects"><span class="rb-tip">Projects</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10h10V2z"/><path d="M22 12H12v10h10V12z"/><path d="M12 12H2v10h10V12z"/><path d="M22 2H12v10h10V2z"/></svg></button>
+      <button class="rb" data-sec="notes"><span class="rb-tip">Notes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></button>
+      <button class="rb" data-sec="coding"><span class="rb-tip">Coding</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></button>
+      <button class="rb" data-sec="certificates"><span class="rb-tip">Certificates</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 12V3"/><path d="m9 21 3-3 3 3"/><path d="M18.4 8.5C18.8 9.6 19 10.7 19 12a7 7 0 1 1-14 0c0-1.3.2-2.4.6-3.5"/></svg></button>
+      <button class="rb" data-sec="contact"><span class="rb-tip">Contact</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.2 0 4 1.8 4 4v8Z"/><polyline points="15,9 18,9 18,11"/><path d="M6.5 5C9 5 11 7 11 9.5V17a2 2 0 0 1-2 2"/></svg></button>
+    </div>
+  </nav>
+</div>
+
+<script type="module">
+import { initializeApp }           from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js'
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged }
+                                   from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js'
+import { getFirestore, collection, doc, addDoc, deleteDoc, getDocs, serverTimestamp, query, orderBy }
+                                   from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js'
+
+// ⚠️ REPLACE WITH YOUR PORTFOLIO FIREBASE CREDENTIAL OBJECT
+const firebaseConfig = {
+  apiKey: "AIzaSyCdZlkfd8-ilcBBjsQebyc8g-ovup_Ku0E",
+  authDomain: "portfolio-1-9d614.firebaseapp.com",
+  projectId: "portfolio-1-9d614",
+  storageBucket: "portfolio-1-9d614.firebasestorage.app",
+  messagingSenderId: "585947835409",
+  appId: "1:585947835409:web:1ab9237e676b4d75fbd5b0"
+}
+
+const app  = initializeApp(firebaseConfig)
+const auth = getAuth(app)
+const db   = getFirestore(app)
+
+// ── Tiny helpers ─────────────────────────────
+const $  = id => document.getElementById(id)
+const qsa = s => document.querySelectorAll(s)
+
+const toast = (msg, ms=2500) => {
+  const t = $('toast'); t.textContent = msg; t.classList.add('on')
+  setTimeout(() => t.classList.remove('on'), ms)
+}
+
+const openMov  = id => $(id).classList.add('open')
+const closeMov = id => $(id).classList.remove('open')
+
+async function getCol(col) {
+  try {
+    const snap = await getDocs(query(collection(db, col), orderBy('createdAt','desc')))
+    return snap.docs.map(d => ({ id: d.id, ...d.data() }))
+  } catch { return [] }
+}
+
+const addItem = (col, data) => addDoc(collection(db, col), { ...data, createdAt: serverTimestamp() })
+const delItem = (col, id)   => deleteDoc(doc(db, col, id))
+
+const val = id => $(id)?.value?.trim() || ''
+
+// ── Theme ────────────────────────────────────
+let dark = localStorage.getItem('theme') !== 'light'
+const applyTheme = () => {
+  document.documentElement.classList.toggle('lm', !dark)
+  $('ico-sun').style.display  = dark  ? '' : 'none'
+  $('ico-moon').style.display = !dark ? '' : 'none'
+  localStorage.setItem('theme', dark ? 'dark' : 'light')
+}
+applyTheme()
+$('theme-btn').addEventListener('click', () => { dark = !dark; applyTheme() })
+
+// ── Scroll-spy & Navigation Sync ───────────────────────────
+const secs = ['about','achievements','skills','projects','notes','coding','certificates','contact']
+const mainEl = $('main')
+const rbBtns = qsa('[data-sec]')
+
+// 1. Precise Scroll-Spy Calculation
+mainEl.addEventListener('scroll', () => {
+  let cur = secs[0]
+  const containerTop = mainEl.scrollTop
+
+  for (const id of secs) {
+    const el = $(id)
+    if (el) {
+      // Get where the section starts relative to the top of the #main container
+      const sectionTopInContainer = el.offsetTop
+      
+      // If we have scrolled past the section's top threshold (minus a 60px padding buffer)
+      if (containerTop >= sectionTopInContainer - 60) {
+        cur = id
+      }
+    }
+  }
+  
+  rbBtns.forEach(b => b.classList.toggle('on', b.dataset.sec === cur))
+})
+
+// 2. Exact Click-to-Scroll Anchor Matching
+rbBtns.forEach(b => b.addEventListener('click', (e) => {
+  e.preventDefault()
+  const el = $(b.dataset.sec)
+  if (el) {
+    // Scroll directly to the element's exact offset within #main
+    mainEl.scrollTo({ 
+      top: el.offsetTop - 15, 
+      behavior: 'smooth' 
+    })
+  }
+}))
+// ── Modal wiring ─────────────────────────────
+document.querySelectorAll('[data-close]').forEach(btn =>
+  btn.addEventListener('click', () => closeMov(btn.dataset.close)))
+
+document.querySelectorAll('.mov').forEach(ov =>
+  ov.addEventListener('click', e => { if (e.target === ov) ov.classList.remove('open') }))
+
+document.querySelectorAll('[data-modal]').forEach(btn =>
+  btn.addEventListener('click', () => openMov(btn.dataset.modal)))
+
+// Admin panel "add" buttons
+document.querySelectorAll('.adm-add').forEach(btn =>
+  btn.addEventListener('click', () => openMov(btn.dataset.modal)))
+
+// ── Auth ─────────────────────────────────────
+let isAdmin = false
+onAuthStateChanged(auth, u => {
+  isAdmin = !!u
+  document.body.classList.toggle('admin-mode', isAdmin)
+  $('adm-trigger').textContent = isAdmin ? '⚙ Dashboard' : '⚙ Admin'
+})
+
+$('adm-trigger').addEventListener('click', () => {
+  if (isAdmin) showAdm()
+  else $('login-ov').classList.add('open')
+})
+
+$('lbtn').addEventListener('click', async () => {
+  $('lerr').style.display = 'none'
+  $('lbtn').disabled = true; $('lbtn').textContent = 'Signing in…'
+  try {
+    await signInWithEmailAndPassword(auth, val('le'), val('lp'))
+    closeMov('login-ov'); showAdm(); toast('Welcome, Admin!')
+  } catch { $('lerr').style.display = 'block' }
+  finally { $('lbtn').disabled = false; $('lbtn').textContent = 'Sign In' }
+})
+
+$('lcancel').addEventListener('click', () => closeMov('login-ov'))
+$('logout-btn').addEventListener('click', async () => { await signOut(auth); hideAdm(); toast('Signed out') })
+$('back-btn').addEventListener('click', hideAdm)
+
+function showAdm() { $('adm').classList.add('open'); loadAdmTab('projects') }
+function hideAdm() { $('adm').classList.remove('open') }
+
+// Admin tabs
+$('adm-tabs').addEventListener('click', e => {
+  const tab = e.target.closest('.adm-tab'); if (!tab) return
+  qsa('.adm-tab').forEach(t => t.classList.remove('on'))
+  qsa('.adm-sec').forEach(s => s.classList.remove('on'))
+  tab.classList.add('on')
+  $('adms-' + tab.dataset.t).classList.add('on')
+  loadAdmTab(tab.dataset.t)
+})
+
+// ── Render ── portfolio sections ─────────────
+
+// SVG icons
+const ICONS = {
+  trophy: `<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>`,
+  star:   `<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  award:  `<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+  code:   `<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  ext:    `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`,
+  dl:     `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
+  gh:     `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>`,
+}
+
+async function renderProjects() {
+  const el = $('projects-list')
+  const items = await getCol('projects')
+  if (!items.length) { el.innerHTML = '<div class="empty">No projects yet. Add from the admin panel.</div>'; return }
+  el.innerHTML = items.map(p => `
+    <div class="pr-c gl lift">
+      <div>
+        <div class="pr-t">${p.title||''}</div>
+        <div class="pr-d">${p.desc||''}</div>
+        <div class="pr-tags">${(p.tech||'').split(',').map(t=>`<span class="pr-tag">${t.trim()}</span>`).join('')}</div>
+      </div>
+      <div class="pr-lnks">
+        ${p.github?`<a href="${p.github}" target="_blank" class="pr-ln">${ICONS.gh} GitHub</a>`:''}
+        ${p.demo?`<a href="${p.demo}" target="_blank" class="pr-ln">${ICONS.ext} Live</a>`:''}
+      </div>
+    </div>`).join('')
+}
+
+async function renderSkills() {
+  const el = $('skills-list')
+  const items = await getCol('skills')
+  if (!items.length) { el.innerHTML = '<div style="color:var(--text-faint);font-size:.85rem;padding:.5rem">No skills yet.</div>'; return }
+  const cats = {}
+  items.forEach(s => { if (!cats[s.cat]) cats[s.cat]=[]; cats[s.cat].push(s.name) })
+  el.innerHTML = Object.entries(cats).map(([c,ns])=>`
+    <div class="sk-cl">${c}</div>
+    <div class="sk-tg">${ns.map(n=>`<span class="sk-t">${n}</span>`).join('')}</div>`).join('')
+}
+
+async function renderNotes() {
+  const el = $('notes-list')
+  const items = await getCol('notes')
+  if (!items.length) { el.innerHTML = '<div class="empty">No notes yet. Add from the admin panel.</div>'; return }
+  el.innerHTML = items.map(n=>`
+    <div class="nt-c gl lift">
+      <div class="nt-cat">${n.cat||'General'}</div>
+      <div class="nt-t">${n.title||''}</div>
+      <div class="nt-d">${n.desc||''}</div>
+      ${n.url?`<a href="${n.url}" target="_blank" class="nt-dl">${ICONS.dl} Download / View</a>`:''}
+    </div>`).join('')
+}
+
+async function renderCoding() {
+  const el = $('coding-list')
+  const items = await getCol('coding')
+  if (!items.length) { el.innerHTML = '<div class="empty">No profiles yet.</div>'; return }
+  el.innerHTML = items.map(c=>`
+    <a href="${c.url}" target="_blank" class="cp-c gl">
+      <span>${c.name||''}</span>
+      <span style="color:var(--text-faint)">${ICONS.ext}</span>
+    </a>`).join('')
+}
+
+async function renderCerts() {
+  const el = $('certs-list')
+  const items = await getCol('certificates')
+  if (!items.length) { el.innerHTML = '<div class="empty">No certificates yet.</div>'; return }
+  el.innerHTML = items.map(c=>`
+    <a href="${c.url||'#'}" target="_blank" class="ce-c gl lift">
+      <div class="ce-b">${c.badge||c.org?.slice(0,2)||'C'}</div>
+      <div><div class="ce-n">${c.title||''}</div><div class="ce-o">${c.desc||c.org||''}</div></div>
+    </a>`).join('')
+}
+
+async function renderAchievements() {
+  const el = $('achievements-list')
+  const items = await getCol('achievements')
+  if (!items.length) { el.innerHTML = '<div class="empty">No achievements yet.</div>'; return }
+  el.innerHTML = items.map(a=>`
+    <div class="ach-c gl lift">
+      <div class="ach-ico">${ICONS[a.icon]||ICONS.trophy}</div>
+      <div class="ach-t">${a.title||''}</div>
+      <div class="ach-s">${a.desc||''}</div>
+    </div>`).join('')
+}
+
+// Load all on start
+Promise.all([renderProjects(),renderSkills(),renderNotes(),renderCoding(),renderCerts(),renderAchievements()])
+
+// ── Admin list renderers ──────────────────────
+const ADM_MAP = {
+  projects:     { col:'projects',     list:'adml-projects',     key:'title' },
+  skills:        { col:'skills',        list:'adml-skills',        key:'name'  },
+  notes:         { col:'notes',         list:'adml-notes',         key:'title' },
+  certificates: { col:'certificates', list:'adml-certificates', key:'title' },
+  achievements: { col:'achievements', list:'adml-achievements', key:'title' },
+  coding:        { col:'coding',        list:'adml-coding',        key:'name'  },
+}
+
+async function loadAdmTab(tab) {
+  const m = ADM_MAP[tab]; if (!m) return
+  const el = $(m.list)
+  el.innerHTML = '<div class="spin"></div>'
+  const items = await getCol(m.col)
+  if (!items.length) { el.innerHTML = '<div class="empty">Nothing here yet.</div>'; return }
+  el.innerHTML = items.map(i=>`
+    <div class="adm-item">
+      <div class="adm-it">
+        <div class="adm-itn">${i[m.key]||'—'}</div>
+        ${i.desc||i.url?`<div class="adm-its">${(i.desc||i.url||'').slice(0,80)}</div>`:''}
+      </div>
+      <button class="adm-del" data-col="${m.col}" data-id="${i.id}">Delete</button>
+    </div>`).join('')
+
+  el.querySelectorAll('.adm-del').forEach(btn =>
+    btn.addEventListener('click', async () => {
+      if (!confirm('Delete this item?')) return
+      await delItem(btn.dataset.col, btn.dataset.id)
+      toast('Deleted'); loadAdmTab(tab)
+      const refreshMap = {projects:renderProjects,skills:renderSkills,notes:renderNotes,certificates:renderCerts,achievements:renderAchievements,coding:renderCoding}
+      refreshMap[tab]?.()
+    }))
+}
+
+// ── Form submits ──────────────────────────────
+async function handleSub(btn, col, getData, modalId, onDone) {
+  const orig = btn.textContent
+  btn.disabled = true; btn.textContent = 'Saving…'
+  try {
+    await addItem(col, getData())
+    closeMov(modalId); toast('Saved!'); onDone()
+  } catch(e) { toast('Error: '+e.message) }
+  finally { btn.disabled = false; btn.textContent = orig }
+}
+
+// Project
+document.querySelector('#mp .f-sub').addEventListener('click', e => handleSub(e.target,'projects',
+  ()=>({title:val('pf-title'),desc:val('pf-desc'),tech:val('pf-tech'),github:val('pf-gh'),demo:val('pf-demo')}),'mp',
+  ()=>{renderProjects();loadAdmTab('projects')}))
+
+// Skill
+document.querySelector('#ms .f-sub').addEventListener('click', e => handleSub(e.target,'skills',
+  ()=>({name:val('sf-name'),cat:val('sf-cat')}),'ms',
+  ()=>{renderSkills();loadAdmTab('skills')}))
+
+// Note
+document.querySelector('#mn .f-sub').addEventListener('click', e => handleSub(e.target,'notes',
+  ()=>({title:val('nf-title'),desc:val('nf-desc'),cat:val('nf-cat'),url:val('nf-url')}),'mn',
+  ()=>{renderNotes();loadAdmTab('notes')}))
+
+// Certificate
+document.querySelector('#mc .f-sub').addEventListener('click', e => handleSub(e.target,'certificates',
+  ()=>({title:val('cf-title'),org:val('cf-org'),desc:val('cf-desc'),url:val('cf-url'),badge:val('cf-badge')}),'mc',
+  ()=>{renderCerts();loadAdmTab('certificates')}))
+
+// Achievement
+document.querySelector('#ma .f-sub').addEventListener('click', e => handleSub(e.target,'achievements',
+  ()=>({title:val('af-title'),desc:val('af-desc'),icon:val('af-icon')}),'ma',
+  ()=>{renderAchievements();loadAdmTab('achievements')}))
+
+// Coding profile
+document.querySelector('#mcp .f-sub').addEventListener('click', e => handleSub(e.target,'coding',
+  ()=>({name:val('cpf-name'),url:val('cpf-url')}),'mcp',
+  ()=>{renderCoding();loadAdmTab('coding')}))
+
+// ── Seed default data if Firestore is empty ───
+async function seedIfEmpty() {
+  const defaultData = {
+    achievements: [
+      {title:'BITS-HYD Hackathon 2025',desc:'Participated in the BITS Hyderabad Hackathon 2025 — built and presented an ML-powered solution.',icon:'trophy'},
+      {title:'Academic Excellence — 9.9 SGPA',desc:'Scored a perfect-near semester GPA of 9.9/10, ranking among the top performers in the department.',icon:'star'},
+      {title:'Overall CGPA: 9.58',desc:'Maintaining a cumulative GPA of 9.58/10 throughout the B.Tech program.',icon:'award'},
+    ],
+    skills: [
+      {name:'Python',cat:'Languages'},{name:'C',cat:'Languages'},{name:'Java',cat:'Languages'},{name:'SQL',cat:'Languages'},
+      {name:'NumPy',cat:'Data & ML'},{name:'Pandas',cat:'Data & ML'},{name:'Scikit-learn',cat:'Data & ML'},
+      {name:'TensorFlow',cat:'Data & ML'},{name:'PyTorch',cat:'Data & ML'},{name:'OpenCV',cat:'Data & ML'},
+      {name:'Matplotlib',cat:'Visualization'},{name:'Seaborn',cat:'Visualization'},
+      {name:'HTML',cat:'Web'},{name:'CSS',cat:'Web'},{name:'React',cat:'Web'},
+    ],
+    projects: [
+      {title:'PixelForge Studio',desc:'A Streamlit-based image processing & AI generation app featuring format conversion, filters, OCR, pencil sketch, and Stable Diffusion XL text-to-image generation with style presets.',tech:'Python, Streamlit, OpenCV, Stable Diffusion XL, HuggingFace',github:'https://github.com/venkataganesh22/pixelforge-studio',demo:''},
+      {title:'Zomato Bangalore Restaurants EDA',desc:'End-to-end exploratory data analysis on 51,000+ Bangalore restaurant records. Covers online delivery trends, location popularity, cost distribution, and rating analysis.',tech:'Python, Pandas, NumPy, Matplotlib, Seaborn, Jupyter',github:'https://github.com/venkataganesh22/zomato-eda',demo:''},
+      {title:'Spotify Global Music Analysis (2009–2025)',desc:'EDA on 8,500+ Spotify tracks covering music trends, artist popularity, genre dominance, album distribution, and COVID-era production spikes.',tech:'Python, Pandas, NumPy, Matplotlib, Seaborn, Jupyter',github:'https://github.com/venkataganesh22/spotify-eda',demo:''},
+    ],
+    notes: [
+      {title:'Numerical Python',desc:'NumPy basics, vectorization, and computational efficiency techniques.',cat:'NumPy',url:'https://github.com/venkataganesh22/numerical-python'},
+      {title:'Pandas Data Wrangling',desc:'Data cleaning, manipulation, and transformations with Pandas.',cat:'Pandas',url:'https://github.com/venkataganesh22/pandas-data-wrangling'},
+      {title:'Matplotlib Plotting',desc:'Static and interactive visual storytelling with Matplotlib.',cat:'Visualization',url:'https://github.com/venkataganesh22/matplotlib-plotting'},
+      {title:'Seaborn Visualization',desc:'Statistical data visualization and polished plotting techniques.',cat:'Visualization',url:'https://github.com/venkataganesh22/seaborn-data-visualization'},
+    ],
+    certificates: [
+      {title:'HackerRank — Python Basics',org:'HackerRank',desc:'Verified Technical Proficiency',url:'https://www.hackerrank.com/certificates/5aefb0dfe116',badge:'HR'},
+      {title:'HackerRank — Problem Solving',org:'HackerRank',desc:'Advanced Problem Solving',url:'https://www.hackerrank.com/certificates/350f520cdca5',badge:'HR'},
+      {title:'Coursera — Data Analytics & ML',org:'Coursera',desc:'Data Analytics & Machine Learning Specialization',url:'https://coursera.org/share/e42fc1a1f92097f2908bf48629bf6531',badge:'C'},
+    ],
+    coding: [
+      {name:'GitHub',url:'https://github.com/venkataganesh22'},
+      {name:'LeetCode',url:'https://leetcode.com/u/venkataganesh_22/'},
+      {name:'HackerRank',url:'https://www.hackerrank.com/profile/venkataganesh22'},
+    ],
+  }
+
+  for (const [col, items] of Object.entries(defaultData)) {
+    try {
+      const snap = await getDocs(collection(db, col))
+      if (snap.empty) {
+        for (const item of items) await addItem(col, item)
+      }
+    } catch (error) { 
+      console.warn("Firestore initialization skipped or missing permissions:", error.message); 
+    }
+  }
+  Promise.all([renderProjects(),renderSkills(),renderNotes(),renderCoding(),renderCerts(),renderAchievements()])
+}
+seedIfEmpty()
+</script>
+</body>
+</html>
